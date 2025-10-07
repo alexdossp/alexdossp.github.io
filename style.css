@@ -1,4 +1,4 @@
-/* Reset e variáveis */
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -18,9 +18,9 @@ html {
   --vidro: rgba(255, 255, 255, 0.08);
 }
 
-/* Corpo */
+/* ===== BODY ===== */
 body {
-  background-color: var(--escuro);
+  background: linear-gradient(180deg, var(--escuro), #1e1b4b);
   color: var(--claro);
 }
 
@@ -104,11 +104,19 @@ h1 {
   font-weight: 700;
 }
 
-.foco {
-  font-size: 1.2rem;
-  color: var(--claro);
-  opacity: 0.9;
-  margin-top: 0.5rem;
+/* ===== ANIMAÇÃO DE BRILHO ===== */
+.brilho {
+  animation: brilhoAnim 3s infinite linear;
+  background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes brilhoAnim {
+  0% { filter: brightness(0.8); }
+  50% { filter: brightness(1.4); }
+  100% { filter: brightness(0.8); }
 }
 
 /* ===== SEÇÕES ===== */
@@ -137,6 +145,26 @@ section {
   line-height: 1.7;
   font-size: 1.05rem;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.caixa:hover {
+  transform: scale(1.02);
+}
+
+/* ===== PROJETO ===== */
+.projeto h3 {
+  font-size: 1.8rem;
+  color: var(--primaria);
+  margin-bottom: 1rem;
+}
+
+.detalhes-projeto {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  line-height: 1.8;
+  opacity: 0.9;
 }
 
 /* ===== FORMULÁRIO ===== */
@@ -166,17 +194,77 @@ textarea.campo-form {
 .btn-enviar {
   background: linear-gradient(90deg, var(--primaria), var(--secundaria));
   border: none;
-  padding: 0.8rem;
+  padding: 0.8rem 1.2rem;
   border-radius: 10px;
   color: white;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-enviar:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
+
+/* ===== PROJETOS ===== */
+.projeto-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  background: var(--vidro);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.2);
+  padding: 2rem;
+  max-width: 900px;
+  transition: transform 0.3s ease;
+}
+
+.projeto-container:hover {
+  transform: scale(1.02);
+}
+
+.projeto-info {
+  flex: 1 1 400px;
+  text-align: left;
+}
+
+.projeto-info h3 {
+  font-size: 1.8rem;
+  color: var(--primaria);
+  margin-bottom: 1rem;
+}
+
+.projeto-info p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.projeto-img {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.projeto-img img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.3);
+}
+
+/* ===== AVISO ===== */
+.aviso {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
 
 /* ===== FOOTER ===== */
 .footer {
@@ -216,7 +304,7 @@ textarea.campo-form {
   color: var(--primaria);
 }
 
-/* ===== ANIMAÇÃO já existente ===== */
+/* ===== FADE UP ===== */
 .fade-up {
   opacity: 0;
   transform: translateY(40px);
@@ -227,4 +315,23 @@ textarea.campo-form {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ===== BOTÃO TOPO ===== */
+#btn-topo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: none;
+  transition: opacity 0.3s;
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+}
+
 
