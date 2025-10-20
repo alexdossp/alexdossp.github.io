@@ -334,4 +334,76 @@ textarea.campo-form {
   box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
 }
 
+/* ===== CARDS COMPACTOS EM 2 COLUNAS ===== */
+.projetos-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+/* 2 cards por linha e layout compacto */
+.projeto-container {
+  flex: 1 1 calc(50% - 2rem);
+  max-width: 560px;
+  display: grid;
+  grid-template-columns: 1fr 180px; /* texto | imagem */
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Padronização visual do texto */
+.projeto-info h3 { 
+  margin-bottom: .6rem; 
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+.projeto-info p  { 
+  margin-bottom: .8rem; 
+  line-height: 1.5;
+  font-size: 1rem;
+}
+.detalhes-projeto { 
+  margin: .6rem 0 .9rem 0; 
+  font-size: .95rem;
+}
+
+/* Padronização das imagens dos cards */
+.projeto-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.projeto-img img {
+  width: 100%;
+  height: 130px;            /* altura fixa para igualar todas */
+  max-width: 180px;         /* largura máxima controlada */
+  object-fit: contain;      /* mantém proporção dentro do espaço */
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.25);
+  background: rgba(255, 255, 255, 0.03); /* fundo sutil para uniformizar visuais */
+  padding: 8px;             /* dá respiro e deixa visual uniforme */
+}
+
+/* Efeito sutil ao passar o mouse */
+.projeto-container:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Responsivo (mobile empilhado) */
+@media (max-width: 860px) {
+  .projeto-container {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+  }
+  .projeto-img img {
+    height: 160px; /* um pouco maior no mobile */
+    max-width: 240px;
+  }
+}
