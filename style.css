@@ -346,6 +346,18 @@ textarea.campo-form {
   margin: 0 auto;
 }
 
+/* ===== CARDS COMPACTOS EM 2 COLUNAS ===== */
+.projetos-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* 2 cards por linha e layout compacto */
 .projeto-container {
   flex: 1 1 calc(50% - 2rem);
